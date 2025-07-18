@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقارنة أسعار السيارات - الولايات المتحدة مقابل المملكة العربية السعودية</title>
+    <link rel="stylesheet" href="styles-ar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-car"></i> مقارنة أسعار السيارات</h1>
+                <p>قارن أسعار السيارات بين الولايات المتحدة والمملكة العربية السعودية</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="search-section">
+                <div class="search-container">
+                    <h2>ابحث عن سيارتك المثالية</h2>
+                    <div class="search-form">
+                        <div class="form-group">
+                            <label for="brand">ماركة السيارة</label>
+                            <select id="brand" required>
+                                <option value="">اختر الماركة</option>
+                                <option value="toyota">تويوتا</option>
+                                <option value="honda">هوندا</option>
+                                <option value="ford">فورد</option>
+                                <option value="chevrolet">شيفروليه</option>
+                                <option value="bmw">بي إم دبليو</option>
+                                <option value="mercedes">مرسيدس بنز</option>
+                                <option value="audi">أودي</option>
+                                <option value="lexus">لكزس</option>
+                                <option value="nissan">نيسان</option>
+                                <option value="hyundai">هيونداي</option>
+                                <option value="kia">كيا</option>
+                                <option value="volkswagen">فولكس فاجن</option>
+                                <option value="mazda">مازدا</option>
+                                <option value="subaru">سوبارو</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="model">موديل السيارة</label>
+                            <select id="model" required disabled>
+                                <option value="">اختر الموديل</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="year">السنة</label>
+                            <select id="year" required>
+                                <option value="">اختر السنة</option>
+                            </select>
+                        </div>
+                        
+                        <button type="button" id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i> قارن الأسعار
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2>نتائج مقارنة الأسعار</h2>
+                    <div class="selected-car">
+                        <span id="selectedCarInfo"></span>
+                    </div>
+                </div>
+                
+                <div class="price-cards">
+                    <div class="price-card usa">
+                        <div class="card-header">
+                            <i class="fas fa-flag-usa"></i>
+                            <h3>أسعار الولايات المتحدة</h3>
+                        </div>
+                        <div class="price-range">
+                            <div class="price-item">
+                                <span class="label">السعر الأساسي:</span>
+                                <span class="price" id="usaBasePrice">$0</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">السعر المتوسط:</span>
+                                <span class="price" id="usaAvgPrice">$0</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">السعر العالي:</span>
+                                <span class="price" id="usaHighPrice">$0</span>
+                            </div>
+                        </div>
+                        <div class="currency-info">
+                            <small>الأسعار بالدولار الأمريكي</small>
+                        </div>
+                    </div>
+                    
+                    <div class="price-card ksa">
+                        <div class="card-header">
+                            <i class="fas fa-flag"></i>
+                            <h3>أسعار المملكة العربية السعودية</h3>
+                        </div>
+                        <div class="price-range">
+                            <div class="price-item">
+                                <span class="label">السعر الأساسي:</span>
+                                <span class="price" id="ksaBasePrice">0 ريال</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">السعر المتوسط:</span>
+                                <span class="price" id="ksaAvgPrice">0 ريال</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">السعر العالي:</span>
+                                <span class="price" id="ksaHighPrice">0 ريال</span>
+                            </div>
+                        </div>
+                        <div class="currency-info">
+                            <small>الأسعار بالريال السعودي</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comparison-summary">
+                    <h3>تحليل فرق السعر</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="summary-label">فرق السعر:</span>
+                            <span class="summary-value" id="priceDifference">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">نسبة الفرق:</span>
+                            <span class="summary-value" id="percentageDifference">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">سعر الصرف:</span>
+                            <span class="summary-value">1 دولار = 3.75 ريال</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="additional-info">
+                    <h3>معلومات إضافية</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4><i class="fas fa-info-circle"></i> الرسوم الجمركية</h4>
+                            <p>تفرض المملكة العربية السعودية رسوم جمركية وضرائب يمكن أن تؤثر بشكل كبير على أسعار السيارات مقارنة بالولايات المتحدة.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-gas-pump"></i> استهلاك الوقود</h4>
+                            <p>ضع في اعتبارك تكاليف الوقود وكفاءة الاستهلاك عند مقارنة التكاليف الإجمالية للملكية.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-tools"></i> الصيانة</h4>
+                            <p>قد تختلف تكاليف الصيانة بين البلدين بسبب توفر قطع الغيار ومعدلات العمالة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 أداة مقارنة أسعار السيارات. البيانات لأغراض مرجعية فقط.</p>
+            <div class="language-switch">
+                <a href="index.html" class="lang-btn">English</a>
+                <a href="index-ar.html" class="lang-btn active">العربية</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script-ar.js"></script>
+</body>
+</html> 

@@ -1,0 +1,516 @@
+// Car database with models and pricing data (Arabic version)
+const carDatabase = {
+    toyota: {
+        name: "تويوتا",
+        models: {
+            camry: {
+                name: "كامري",
+                usa: { base: 26520, average: 32000, high: 38000 },
+                ksa: { base: 85000, average: 105000, high: 125000 }
+            },
+            corolla: {
+                name: "كورولا",
+                usa: { base: 21550, average: 25000, high: 30000 },
+                ksa: { base: 70000, average: 85000, high: 100000 }
+            },
+            rav4: {
+                name: "راف فور",
+                usa: { base: 28010, average: 35000, high: 42000 },
+                ksa: { base: 90000, average: 110000, high: 130000 }
+            },
+            highlander: {
+                name: "هايلاندر",
+                usa: { base: 36620, average: 45000, high: 55000 },
+                ksa: { base: 120000, average: 145000, high: 170000 }
+            },
+            tacoma: {
+                name: "تاكوما",
+                usa: { base: 27250, average: 35000, high: 45000 },
+                ksa: { base: 90000, average: 110000, high: 140000 }
+            }
+        }
+    },
+    honda: {
+        name: "هوندا",
+        models: {
+            accord: {
+                name: "أكورد",
+                usa: { base: 27295, average: 32000, high: 38000 },
+                ksa: { base: 85000, average: 100000, high: 120000 }
+            },
+            civic: {
+                name: "سيفيك",
+                usa: { base: 23500, average: 27000, high: 32000 },
+                ksa: { base: 75000, average: 85000, high: 100000 }
+            },
+            crv: {
+                name: "سي آر في",
+                usa: { base: 26525, average: 32000, high: 38000 },
+                ksa: { base: 85000, average: 100000, high: 120000 }
+            },
+            pilot: {
+                name: "بايلوت",
+                usa: { base: 37440, average: 45000, high: 55000 },
+                ksa: { base: 120000, average: 140000, high: 170000 }
+            }
+        }
+    },
+    ford: {
+        name: "فورد",
+        models: {
+            f150: {
+                name: "إف 150",
+                usa: { base: 34445, average: 45000, high: 65000 },
+                ksa: { base: 110000, average: 140000, high: 200000 }
+            },
+            mustang: {
+                name: "موستانج",
+                usa: { base: 27870, average: 35000, high: 45000 },
+                ksa: { base: 90000, average: 110000, high: 140000 }
+            },
+            explorer: {
+                name: "إكسبلورر",
+                usa: { base: 36760, average: 45000, high: 55000 },
+                ksa: { base: 120000, average: 140000, high: 170000 }
+            },
+            escape: {
+                name: "إسكيب",
+                usa: { base: 27500, average: 32000, high: 38000 },
+                ksa: { base: 85000, average: 100000, high: 120000 }
+            }
+        }
+    },
+    chevrolet: {
+        name: "شيفروليه",
+        models: {
+            silverado: {
+                name: "سيلفرادو",
+                usa: { base: 36500, average: 45000, high: 65000 },
+                ksa: { base: 120000, average: 140000, high: 200000 }
+            },
+            camaro: {
+                name: "كامارو",
+                usa: { base: 26100, average: 32000, high: 40000 },
+                ksa: { base: 85000, average: 100000, high: 125000 }
+            },
+            equinox: {
+                name: "إكوينوكس",
+                usa: { base: 26520, average: 32000, high: 38000 },
+                ksa: { base: 85000, average: 100000, high: 120000 }
+            },
+            malibu: {
+                name: "ماليبو",
+                usa: { base: 25000, average: 30000, high: 35000 },
+                ksa: { base: 80000, average: 95000, high: 110000 }
+            }
+        }
+    },
+    bmw: {
+        name: "بي إم دبليو",
+        models: {
+            "3series": {
+                name: "الفئة الثالثة",
+                usa: { base: 43450, average: 55000, high: 70000 },
+                ksa: { base: 140000, average: 170000, high: 220000 }
+            },
+            "5series": {
+                name: "الفئة الخامسة",
+                usa: { base: 55000, average: 70000, high: 90000 },
+                ksa: { base: 180000, average: 220000, high: 280000 }
+            },
+            x3: {
+                name: "إكس 3",
+                usa: { base: 47000, average: 60000, high: 75000 },
+                ksa: { base: 150000, average: 190000, high: 240000 }
+            },
+            x5: {
+                name: "إكس 5",
+                usa: { base: 65000, average: 85000, high: 110000 },
+                ksa: { base: 210000, average: 270000, high: 350000 }
+            }
+        }
+    },
+    mercedes: {
+        name: "مرسيدس بنز",
+        models: {
+            cclass: {
+                name: "الفئة سي",
+                usa: { base: 45000, average: 58000, high: 75000 },
+                ksa: { base: 150000, average: 190000, high: 240000 }
+            },
+            eclass: {
+                name: "الفئة إي",
+                usa: { base: 58000, average: 75000, high: 95000 },
+                ksa: { base: 190000, average: 240000, high: 300000 }
+            },
+            gle: {
+                name: "جي إل إي",
+                usa: { base: 58000, average: 75000, high: 100000 },
+                ksa: { base: 190000, average: 240000, high: 320000 }
+            },
+            glc: {
+                name: "جي إل سي",
+                usa: { base: 45000, average: 58000, high: 75000 },
+                ksa: { base: 150000, average: 190000, high: 240000 }
+            }
+        }
+    },
+    audi: {
+        name: "أودي",
+        models: {
+            a4: {
+                name: "إيه 4",
+                usa: { base: 40000, average: 52000, high: 65000 },
+                ksa: { base: 130000, average: 170000, high: 210000 }
+            },
+            a6: {
+                name: "إيه 6",
+                usa: { base: 55000, average: 70000, high: 90000 },
+                ksa: { base: 180000, average: 220000, high: 280000 }
+            },
+            q5: {
+                name: "كي 5",
+                usa: { base: 45000, average: 58000, high: 75000 },
+                ksa: { base: 150000, average: 190000, high: 240000 }
+            },
+            q7: {
+                name: "كي 7",
+                usa: { base: 60000, average: 78000, high: 100000 },
+                ksa: { base: 200000, average: 250000, high: 320000 }
+            }
+        }
+    },
+    lexus: {
+        name: "لكزس",
+        models: {
+            es: {
+                name: "إي إس",
+                usa: { base: 42000, average: 55000, high: 70000 },
+                ksa: { base: 140000, average: 180000, high: 220000 }
+            },
+            rx: {
+                name: "آر إكس",
+                usa: { base: 48000, average: 62000, high: 80000 },
+                ksa: { base: 160000, average: 200000, high: 250000 }
+            },
+            nx: {
+                name: "إن إكس",
+                usa: { base: 38000, average: 50000, high: 65000 },
+                ksa: { base: 130000, average: 160000, high: 210000 }
+            },
+            ls: {
+                name: "إل إس",
+                usa: { base: 78000, average: 100000, high: 130000 },
+                ksa: { base: 260000, average: 320000, high: 410000 }
+            }
+        }
+    },
+    nissan: {
+        name: "نيسان",
+        models: {
+            altima: {
+                name: "ألتيما",
+                usa: { base: 25000, average: 30000, high: 35000 },
+                ksa: { base: 80000, average: 95000, high: 110000 }
+            },
+            rogue: {
+                name: "روج",
+                usa: { base: 27000, average: 32000, high: 38000 },
+                ksa: { base: 85000, average: 100000, high: 120000 }
+            },
+            sentra: {
+                name: "سنترا",
+                usa: { base: 20000, average: 24000, high: 28000 },
+                ksa: { base: 65000, average: 75000, high: 90000 }
+            },
+            pathfinder: {
+                name: "باثفايندر",
+                usa: { base: 35000, average: 42000, high: 50000 },
+                ksa: { base: 110000, average: 130000, high: 160000 }
+            }
+        }
+    },
+    hyundai: {
+        name: "هيونداي",
+        models: {
+            sonata: {
+                name: "سوناتا",
+                usa: { base: 24000, average: 28000, high: 33000 },
+                ksa: { base: 75000, average: 90000, high: 105000 }
+            },
+            tucson: {
+                name: "توسان",
+                usa: { base: 26000, average: 31000, high: 37000 },
+                ksa: { base: 80000, average: 95000, high: 115000 }
+            },
+            elantra: {
+                name: "إلنترا",
+                usa: { base: 20000, average: 24000, high: 28000 },
+                ksa: { base: 65000, average: 75000, high: 90000 }
+            },
+            santa_fe: {
+                name: "سانتا في",
+                usa: { base: 28000, average: 34000, high: 40000 },
+                ksa: { base: 90000, average: 105000, high: 125000 }
+            }
+        }
+    },
+    kia: {
+        name: "كيا",
+        models: {
+            k5: {
+                name: "كي 5",
+                usa: { base: 25000, average: 29000, high: 34000 },
+                ksa: { base: 80000, average: 90000, high: 110000 }
+            },
+            sportage: {
+                name: "سبورتاج",
+                usa: { base: 26000, average: 31000, high: 37000 },
+                ksa: { base: 80000, average: 95000, high: 115000 }
+            },
+            forte: {
+                name: "فورتي",
+                usa: { base: 19000, average: 22000, high: 26000 },
+                ksa: { base: 60000, average: 70000, high: 80000 }
+            },
+            telluride: {
+                name: "تيلورايد",
+                usa: { base: 36000, average: 43000, high: 50000 },
+                ksa: { base: 115000, average: 135000, high: 160000 }
+            }
+        }
+    },
+    volkswagen: {
+        name: "فولكس فاجن",
+        models: {
+            jetta: {
+                name: "جيتا",
+                usa: { base: 20000, average: 24000, high: 28000 },
+                ksa: { base: 65000, average: 75000, high: 90000 }
+            },
+            passat: {
+                name: "باسات",
+                usa: { base: 25000, average: 30000, high: 35000 },
+                ksa: { base: 80000, average: 95000, high: 110000 }
+            },
+            tiguan: {
+                name: "تيجوان",
+                usa: { base: 27000, average: 32000, high: 38000 },
+                ksa: { base: 85000, average: 100000, high: 120000 }
+            },
+            atlas: {
+                name: "أطلس",
+                usa: { base: 35000, average: 42000, high: 50000 },
+                ksa: { base: 110000, average: 130000, high: 160000 }
+            }
+        }
+    },
+    mazda: {
+        name: "مازدا",
+        models: {
+            mazda3: {
+                name: "مازدا 3",
+                usa: { base: 22000, average: 26000, high: 30000 },
+                ksa: { base: 70000, average: 80000, high: 95000 }
+            },
+            cx5: {
+                name: "سي إكس 5",
+                usa: { base: 26000, average: 31000, high: 37000 },
+                ksa: { base: 80000, average: 95000, high: 115000 }
+            },
+            mazda6: {
+                name: "مازدا 6",
+                usa: { base: 25000, average: 30000, high: 35000 },
+                ksa: { base: 80000, average: 95000, high: 110000 }
+            },
+            cx9: {
+                name: "سي إكس 9",
+                usa: { base: 35000, average: 42000, high: 50000 },
+                ksa: { base: 110000, average: 130000, high: 160000 }
+            }
+        }
+    },
+    subaru: {
+        name: "سوبارو",
+        models: {
+            impreza: {
+                name: "إمبريزا",
+                usa: { base: 19000, average: 23000, high: 27000 },
+                ksa: { base: 60000, average: 70000, high: 85000 }
+            },
+            outback: {
+                name: "أوتباك",
+                usa: { base: 28000, average: 34000, high: 40000 },
+                ksa: { base: 90000, average: 105000, high: 125000 }
+            },
+            forester: {
+                name: "فورستر",
+                usa: { base: 26000, average: 31000, high: 37000 },
+                ksa: { base: 80000, average: 95000, high: 115000 }
+            },
+            crosstrek: {
+                name: "كروستريك",
+                usa: { base: 23000, average: 27000, high: 31000 },
+                ksa: { base: 75000, average: 85000, high: 100000 }
+            }
+        }
+    }
+};
+
+// DOM elements
+const brandSelect = document.getElementById('brand');
+const modelSelect = document.getElementById('model');
+const yearSelect = document.getElementById('year');
+const searchBtn = document.getElementById('searchBtn');
+const resultsSection = document.getElementById('resultsSection');
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', function() {
+    populateYears();
+    setupEventListeners();
+});
+
+// Populate year dropdown (current year to 2015)
+function populateYears() {
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear; year >= 2015; year--) {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearSelect.appendChild(option);
+    }
+}
+
+// Setup event listeners
+function setupEventListeners() {
+    brandSelect.addEventListener('change', handleBrandChange);
+    searchBtn.addEventListener('click', handleSearch);
+}
+
+// Handle brand selection
+function handleBrandChange() {
+    const selectedBrand = brandSelect.value;
+    modelSelect.innerHTML = '<option value="">اختر الموديل</option>';
+    modelSelect.disabled = true;
+    
+    if (selectedBrand && carDatabase[selectedBrand]) {
+        const models = carDatabase[selectedBrand].models;
+        Object.keys(models).forEach(modelKey => {
+            const option = document.createElement('option');
+            option.value = modelKey;
+            option.textContent = models[modelKey].name;
+            modelSelect.appendChild(option);
+        });
+        modelSelect.disabled = false;
+    }
+}
+
+// Handle search button click
+function handleSearch() {
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const year = yearSelect.value;
+    
+    if (!brand || !model || !year) {
+        alert('يرجى اختيار الماركة والموديل والسنة');
+        return;
+    }
+    
+    // Show loading state
+    searchBtn.innerHTML = '<span class="loading"></span> جاري البحث...';
+    searchBtn.disabled = true;
+    
+    // Simulate API call delay
+    setTimeout(() => {
+        displayResults(brand, model, year);
+        searchBtn.innerHTML = '<i class="fas fa-search"></i> قارن الأسعار';
+        searchBtn.disabled = false;
+    }, 1000);
+}
+
+// Display comparison results
+function displayResults(brand, model, year) {
+    const carData = carDatabase[brand].models[model];
+    const brandName = carDatabase[brand].name;
+    const modelName = carData.name;
+    
+    // Update selected car info
+    document.getElementById('selectedCarInfo').textContent = `${year} ${brandName} ${modelName}`;
+    
+    // Update USA prices
+    document.getElementById('usaBasePrice').textContent = formatUSD(carData.usa.base);
+    document.getElementById('usaAvgPrice').textContent = formatUSD(carData.usa.average);
+    document.getElementById('usaHighPrice').textContent = formatUSD(carData.usa.high);
+    
+    // Update KSA prices
+    document.getElementById('ksaBasePrice').textContent = formatSAR(carData.ksa.base);
+    document.getElementById('ksaAvgPrice').textContent = formatSAR(carData.ksa.average);
+    document.getElementById('ksaHighPrice').textContent = formatSAR(carData.ksa.high);
+    
+    // Calculate and display price differences
+    const usaAvg = carData.usa.average;
+    const ksaAvg = carData.ksa.average;
+    const priceDiff = ksaAvg - (usaAvg * 3.75); // Convert USD to SAR
+    const percentageDiff = ((priceDiff / (usaAvg * 3.75)) * 100).toFixed(1);
+    
+    document.getElementById('priceDifference').textContent = formatSAR(Math.abs(priceDiff));
+    
+    const diffText = priceDiff > 0 ? 'أعلى في المملكة' : 'أقل في المملكة';
+    document.getElementById('percentageDifference').textContent = `${percentageDiff}% ${diffText}`;
+    
+    // Show results section with animation
+    resultsSection.style.display = 'block';
+    resultsSection.classList.add('fade-in');
+    
+    // Scroll to results
+    resultsSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Format USD currency
+function formatUSD(amount) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(amount);
+}
+
+// Format SAR currency
+function formatSAR(amount) {
+    return new Intl.NumberFormat('ar-SA', {
+        style: 'currency',
+        currency: 'SAR',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(amount);
+}
+
+// Add some interactive features
+document.addEventListener('DOMContentLoaded', function() {
+    // Add hover effects to price cards
+    const priceCards = document.querySelectorAll('.price-card');
+    priceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && document.activeElement === searchBtn) {
+            handleSearch();
+        }
+    });
+});
+
+// Export functions for potential future use
+window.carPriceComparison = {
+    carDatabase,
+    formatUSD,
+    formatSAR
+}; 
