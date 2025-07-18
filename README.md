@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Car Price Comparison Tool - USA vs KSA
 
 A modern, interactive web application that allows users to compare car prices between the United States and Saudi Arabia (KSA). This tool helps users understand the price differences and factors affecting car costs in both countries.
@@ -148,3 +149,6 @@ For questions or suggestions, please refer to the code comments or create an iss
 ---
 
 **Disclaimer**: This tool provides estimated pricing information for educational and comparison purposes. Actual prices may vary significantly based on location, dealer, options, and market conditions. Always verify current pricing with local dealers before making purchasing decisions. 
+=======
+# car-price-comparison
+>>>>>>> b40fc9b7294fd85dd37d0f89a9e02fecb54fd5bf
